@@ -20,7 +20,7 @@ const LinkPreview = ({label, preview, url}: Props) => {
           </span>
       </Tooltip.Trigger>
           <Tooltip.Portal>
-            <Content className="TooltipContent" sideOffset={5}>
+            <Content className="TooltipContent" sideOffset={12} side="top" align='start'>
               {
                 preview === undefined ? 
                 <Shimmer />
@@ -67,13 +67,9 @@ const SlideUp = keyframes`
   from {
     opacity: 0;
     transform: translateY(20px);
-    /* transform: scaleY(0); */
-    /* transform-origin : 50% 100%;  */
   }
   to {
     opacity: 1;
-    /* transform: scaleY(1); */
-    /* transform-origin : 50% 100%;  */
     transform: translateY(0px);
   }
 `
@@ -94,7 +90,6 @@ const Content = styled(Tooltip.Content)`
   border-radius: 12px;
   padding: 8px;
   box-shadow: 0px 9px 15px 3px rgba(0,0,0,0.09);
-  /* animation: ${SlideUp} 300ms ease-in; */
   animation-duration: 0.2s;
   animation-timing-function: linear;
   &.TooltipContent[data-state="delayed-open"] {
@@ -105,10 +100,30 @@ const Content = styled(Tooltip.Content)`
   }
 `;
 
+const Shiny = keyframes`
+  from {
+    -webkit-mask-position: 100%;
+
+  }
+  to {
+    -webkit-mask-position: 0%;
+  }
+`
+
 const Image = styled.img`
   border-radius: 12px;
   width: 200px;
   height: 120px;
+  -webkit-mask-image: linear-gradient(
+    60deg,
+    black 25%,
+    rgba(0, 0, 0, 0.5) 50%,
+    black 75%
+  );
+  -webkit-mask-size: 400%;
+  -webkit-mask-position: 100%;
+  transition: mask-position 1s ease, -webkit-mask-position 1s ease;
+  animation: ${Shiny} ease 1s;
 `;
 
 const Link = styled.a`

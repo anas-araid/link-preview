@@ -52,9 +52,6 @@ export default function Home() {
   return (
     <>
       <Container>
-        {/* <div id="asdf"></div>
-        <div id="asdf1"></div>
-        <div id="asdf2"></div> */}
         <form onSubmit={handleSubmit}>
           <Input value={value} onChange={(e) => setValue(e.target.value)}/>
         </form>
@@ -71,7 +68,7 @@ export default function Home() {
 }
 
 const Container = styled.main`
-  padding: 80px;
+  padding: 120px;
 `
 
 const Ul = styled.ul`
