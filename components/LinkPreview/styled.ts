@@ -25,11 +25,11 @@ const SlideDown = keyframes`
 
 const Shiny = keyframes`
   from {
-    -webkit-mask-position: 100%;
+    mask-position: 100%;
 
   }
   to {
-    -webkit-mask-position: 0%;
+    mask-position: 0%;
   }
 `
 
@@ -52,15 +52,14 @@ export const Image = styled.img`
   border-radius: 12px;
   width: 200px;
   height: 120px;
-  -webkit-mask-image: linear-gradient(
+  mask-image: linear-gradient(
     60deg,
     black 25%,
     rgba(0, 0, 0, 0.5) 50%,
     black 75%
   );
-  -webkit-mask-size: 400%;
-  -webkit-mask-position: 100%;
-  transition: mask-position 1s ease, -webkit-mask-position 1s ease;
+  mask-size: 400%;
+  mask-position: 100%;
   animation: ${Shiny} ease 1s;
 `;
 
